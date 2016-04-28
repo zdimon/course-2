@@ -61,6 +61,20 @@
 
     ./manage.py migrate
 
+### Add model to admin app.
+
+
+    class MusicianAdmin(admin.ModelAdmin):
+        pass
+
+    admin.site.register(Musician, MusicianAdmin)
+
+
+    class AlbumAdmin(admin.ModelAdmin):
+        pass
+
+    admin.site.register(Album, AlbumAdmin)    
+
 
 
     
