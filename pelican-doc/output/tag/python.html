@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>doc - python</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">doc </a></h1>
+                <nav><ul>
+                    <li><a href="/pages/python, курсы.html">Курс обучения языку python</a></li>
+                    <li><a href="/category/urok-1.html">Урок 1</a></li>
+                    <li><a href="/category/urok-2.html">Урок 2</a></li>
+                    <li><a href="/category/urok-3.html">Урок 3</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/1-1.html">Содержание</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-02-11T00:00:00+01:00">
+                Published: Ср. 11 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-1.html">Урок 1</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/tutorial.html">tutorial</a> </p>
+</footer><!-- /.post-info --><ul class="simple">
+<li><a class="reference external" href="/1-2.html">Установка xubuntu</a></li>
+<li><a class="reference external" href="/1-3.html">Установка python и необходимых библиотек</a></li>
+<li><a class="reference external" href="/1-4.html">Виртуальное окружение и наш первый блог</a></li>
+<li><a class="reference external" href="/1-5.html">Работаем с репозиторием git</a></li>
+</ul>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2-1.html" rel="bookmark"
+                           title="Permalink to Содержание">Содержание</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-11T00:00:00+01:00">
+                Published: Ср. 11 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-2.html">Урок 2</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/tutorial.html">tutorial</a> </p>
+</footer><!-- /.post-info -->                <ul class="simple">
+<li><a class="reference external" href="/2-2.html">Установка Django и первый тест</a></li>
+<li><a class="reference external" href="/2-3.html">Юниттесты</a></li>
+</ul>
+
+                <a class="readmore" href="/2-1.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2-2.html" rel="bookmark"
+                           title="Permalink to Установка Django и первый тест">Установка Django и первый тест</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-11T00:00:00+01:00">
+                Published: Ср. 11 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-2.html">Урок 2</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/tutorial.html">tutorial</a> <a href="/tag/uroki.html">уроки</a> </p>
+</footer><!-- /.post-info -->                <p>Создадим папку c виртуальным окружением и активируем его.</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> ~
+virtualenv o_ve
+<span class="nb">cd</span> o_ve
+<span class="nb">source</span> ./bin/activate
+</pre></div>
+<p>Создадим файл с перечнем необходимых пакетов.</p>
+<div class="highlight"><pre><span></span>vim requirements.txt
+</pre></div>
+<p>Содержимое файла.</p>
+<div class="highlight"><pre><span></span><span class="nv">Django</span><span class="o">==</span>1.6
+<span class="nv">selenium</span><span class="o">==</span>2.44
+<span class="nv">south</span><span class="o">==</span>1.0
+</pre></div>
+<p>Устанавливаем пакеты в ВО.</p>
+<div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+<p>Пишем первый тест (ft.py ...</p>
+                <a class="readmore" href="/2-2.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/2-3.html" rel="bookmark"
+                           title="Permalink to Юниттесты">Юниттесты</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-11T00:00:00+01:00">
+                Published: Ср. 11 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-2.html">Урок 2</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/tutorial.html">tutorial</a> <a href="/tag/uroki.html">уроки</a> <a href="/tag/unittest.html">unittest</a> </p>
+</footer><!-- /.post-info -->                <p>Отличие юниттестов от функциональных.</p>
+<ol class="arabic simple">
+<li>Функциональные работают с точки зрения обычного пользователя и включают в себя имитацию действий в браузере.</li>
+<li>Юнит тесты проверяют приложение &quot;изнутри&quot;, работают с точки зрения программиста и могут проверить более &quot;глубокие&quot; участки кода.</li>
+</ol>
+<p>Создадим приложение которое будем тестировать.</p>
+<div class="highlight"><pre><span></span>./manage.py startapp blog
+</pre></div>
+<p>Добавим первый 'тупой' тест в ...</p>
+                <a class="readmore" href="/2-3.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/3-1.html" rel="bookmark"
+                           title="Permalink to Содержание">Содержание</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-11T00:00:00+01:00">
+                Published: Ср. 11 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-3.html">Урок 3</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/tutorial.html">tutorial</a> </p>
+</footer><!-- /.post-info -->                <ul class="simple">
+<li><a class="reference external" href="/3-2.html">Работаем с шаблонами</a></li>
+<li><a class="reference external" href="/3-3.html">Первая форма</a></li>
+</ul>
+
+                <a class="readmore" href="/3-1.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/3-2.html" rel="bookmark"
+                           title="Permalink to Работаем с шаблонами">Работаем с шаблонами</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-11T00:00:00+01:00">
+                Published: Ср. 11 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-3.html">Урок 3</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/tutorial.html">tutorial</a> <a href="/tag/uroki.html">уроки</a> <a href="/tag/unittest.html">unittest</a> <a href="/tag/shablony.html">шаблоны</a> <a href="/tag/templates.html">templates</a> </p>
+</footer><!-- /.post-info -->                <p>Создадим директорию o/blog/templates и поместим туда шаблон home.html со следующим кодом.</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+<p>Подключим шаблонизатор в o/blog/views.py и подгрузим шаблон.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+<span class="c1"># Create your views here.</span>
+<span class="k">def</span> <span class="nf">home_page</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;home ...</span></pre></div>
+                <a class="readmore" href="/3-2.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/3-3.html" rel="bookmark"
+                           title="Permalink to Первая форма">Первая форма</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-11T00:00:00+01:00">
+                Published: Ср. 11 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-3.html">Урок 3</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/tutorial.html">tutorial</a> <a href="/tag/uroki.html">уроки</a> <a href="/tag/unittest.html">unittest</a> <a href="/tag/shablony.html">шаблоны</a> <a href="/tag/form.html">form</a> </p>
+</footer><!-- /.post-info -->                <p>Добавим форму в шаблон o/blog/templates/home.html</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello world<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;item_text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;id_new_item&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Enter a to-do item&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">table</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;id_list_table&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+<p>Добавим в функциональный тест <strong>o/ft.py</strong> сабмит формы.</p>
+<div class="highlight"><pre><span></span><span class="kn">from ...</span></pre></div>
+                <a class="readmore" href="/3-3.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/1-2.html" rel="bookmark"
+                           title="Permalink to Установка xubuntu">Установка xubuntu</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-10T00:00:00+01:00">
+                Published: Вт. 10 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-1.html">Урок 1</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/moduli.html">модули</a> </p>
+</footer><!-- /.post-info -->                <p><a class="reference external" href="1/1.html">hhhh</a></p>
+<img alt="1" src="/images/1/1.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/2.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/3.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/4.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/5.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/6.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/7.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/8.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/9.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/10.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/11.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/12.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/13.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/14.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/15.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/16.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/17.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/18.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/19.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/20.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/21.jpg" style="width: 800px;" />
+<img alt="1" src="/images/1/22.jpg" style="width: 800px;" />
+
+                <a class="readmore" href="/1-2.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/1-3.html" rel="bookmark"
+                           title="Permalink to Установка python и минимума библиотек">Установка python и минимума библиотек</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-09T00:00:00+01:00">
+                Published: Пн. 09 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-1.html">Урок 1</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/uroki.html">уроки</a> <a href="/tag/kursy.html">курсы</a> </p>
+</footer><!-- /.post-info -->                <p>Заходим на удаленный сервер</p>
+<div class="highlight"><pre><span></span>ssh root@192.168.1.12
+</pre></div>
+<p>Установка файлового менеджера</p>
+<div class="highlight"><pre><span></span>sudo apt-get install mc
+</pre></div>
+<p>Установка dev версии python.</p>
+<div class="highlight"><pre><span></span>sudo apt-get install python-software-properties  python-dev
+</pre></div>
+<p>Установка виртуального окружения</p>
+<div class="highlight"><pre><span></span>sudo apt-get install python-virtualenv
+</pre></div>
+<p>Установка установщика пакетов pip</p>
+<div class="highlight"><pre><span></span>sudo apt-get install python-pip
+</pre></div>
+
+                <a class="readmore" href="/1-3.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/1-4.html" rel="bookmark"
+                           title="Permalink to Виртуальное окружение и наш первый блог.">Виртуальное окружение и наш первый блог.</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-08T00:00:00+01:00">
+                Published: Вс. 08 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-1.html">Урок 1</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/uroki.html">уроки</a> <a href="/tag/kursy.html">курсы</a> </p>
+</footer><!-- /.post-info -->                <p>Создание виртуального окружения.</p>
+<div class="highlight"><pre><span></span>virtualenv ve
+</pre></div>
+<p>Переход в каталог виртуального окружения ВО.</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> ve
+</pre></div>
+<p>Активируем ВО.</p>
+<div class="highlight"><pre><span></span><span class="nb">source</span> ./bin/activate
+</pre></div>
+<p>Создаем файл requirements.txt со списком необходимых пакетов.</p>
+<div class="highlight"><pre><span></span>touch requirements.txt
+</pre></div>
+<p>Содержимое файла.</p>
+<div class="highlight"><pre><span></span><span class="n">Pelican</span>
+<span class="n">Markdown</span>
+</pre></div>
+<p>Устанавливаем эти пакеты.</p>
+<div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+<p>Создадим каталог для проекта.</p>
+<div class="highlight"><pre><span></span>mkdir site
+<span class="nb">cd</span> site
+</pre></div>
+<p>Создадим ...</p>
+                <a class="readmore" href="/1-4.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/1-5.html" rel="bookmark"
+                           title="Permalink to Работаем с репозиторием git">Работаем с репозиторием git</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-08T00:00:00+01:00">
+                Published: Вс. 08 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-1.html">Урок 1</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/uroki.html">уроки</a> <a href="/tag/kursy.html">курсы</a> </p>
+</footer><!-- /.post-info -->                <p>Регистрируемся на сайте <a class="reference external" href="https://github.com">https://github.com</a>
+Создаем репозиторий.</p>
+<p>Установка git.</p>
+<div class="highlight"><pre><span></span>apt-get install git
+</pre></div>
+<p>Создадим каталог приложения.</p>
+<div class="highlight"><pre><span></span>mkdir myproject
+</pre></div>
+<p>Инициализация репозитория.</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> myproject
+git init
+</pre></div>
+<p>Создадим файл с кодом.</p>
+<div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;print &quot;Hello world&quot;&#39;</span> &gt;&gt; hello.py
+</pre></div>
+<p>Добавим файл для комита.</p>
+<div class="highlight"><pre><span></span>git add .
+</pre></div>
+<p>Просмотрим статус.</p>
+<div class="highlight"><pre><span></span>git status
+</pre></div>
+<p>Закомитим изменения локально.</p>
+<div class="highlight"><pre><span></span>git commit -m ...</pre></div>
+                <a class="readmore" href="/1-5.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

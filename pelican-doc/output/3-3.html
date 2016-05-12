@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Первая форма</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">doc </a></h1>
+                <nav><ul>
+                    <li><a href="/pages/python, курсы.html">Курс обучения языку python</a></li>
+                    <li><a href="/category/urok-1.html">Урок 1</a></li>
+                    <li><a href="/category/urok-2.html">Урок 2</a></li>
+                    <li class="active"><a href="/category/urok-3.html">Урок 3</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/3-3.html" rel="bookmark"
+           title="Permalink to Первая форма">Первая форма</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-11T00:00:00+01:00">
+                Published: Ср. 11 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-3.html">Урок 3</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/tutorial.html">tutorial</a> <a href="/tag/uroki.html">уроки</a> <a href="/tag/unittest.html">unittest</a> <a href="/tag/shablony.html">шаблоны</a> <a href="/tag/form.html">form</a> </p>
+</footer><!-- /.post-info -->      <p>Добавим форму в шаблон o/blog/templates/home.html</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello world<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;item_text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;id_new_item&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Enter a to-do item&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">table</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;id_list_table&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+<p>Добавим в функциональный тест <strong>o/ft.py</strong> сабмит формы.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
+ <span class="p">[</span><span class="o">.....</span><span class="p">]</span>
+<span class="c1"># заполним inputbox</span>
+<span class="n">inputbox</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;Buy peacock feathers&#39;</span><span class="p">)</span>
+
+<span class="c1"># Сабмитнем форму и подождем</span>
+
+<span class="n">inputbox</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">ENTER</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+<p>Запускаем ФТ и видим В БРАУЗЕРЕ защиту от кроссайтовых атак. Нужно вставить подпись в форму.</p>
+<div class="highlight"><pre><span></span> [...]
+ <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;item_text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;id_new_item&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Enter a to-do item&quot;</span> <span class="p">/&gt;</span>
+     {% csrf_token %}
+ <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+[...]
+</pre></div>
+<p>Напишем юнит тест на сабмит формы.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_home_page_can_save_a_POST_request</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">HttpRequest</span><span class="p">()</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;POST&#39;</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;item_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;A new list item&#39;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">home_page</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;A new list item&#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</pre></div>
+<p>Запускаем юнит тест.</p>
+<div class="highlight"><pre><span></span>AssertionError: <span class="s1">&#39;A new list item&#39;</span> not found in u<span class="err">&#39;</span>&lt;html&gt;<span class="se">\n</span>   <span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+<p>Допишем во вьюхе обработку POST запроса где просто выведем на страницу значение переданного в POST поля.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">home_page</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;item_text&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;home.html&#39;</span><span class="p">)</span>
+</pre></div>
+<p>Тест прошел.</p>
+<p>Передадим переменную в шаблон django.
+В шаблоне переменные выводятся так {{ var }}.
+Выведем переменную в шаблоне o/blog/templates/home.html</p>
+<div class="highlight"><pre><span></span>[...]
+<span class="p">&lt;</span><span class="nt">table</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;id_list_table&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{ item }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+[...]
+</pre></div>
+<p>Допишем юнит тест где проверим вывод этой переменной.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_home_page_can_save_a_POST_request</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;A new list item&#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+    <span class="n">expected_html</span> <span class="o">=</span> <span class="n">render_to_string</span><span class="p">(</span><span class="s1">&#39;home.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;item&#39;</span><span class="p">:</span> <span class="s1">&#39;New list item&#39;</span><span class="p">}</span> <span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span><span class="n">expected_html</span>
+</pre></div>
+<p>Тут мы получили строку expected_html отпарсив шаблон home.html с переменной item, которая будет вставлена вместо {{ item }} в шаблоне</p>
+<p>Запуск теста не проходит потому что мы не передали переменную во вьюхе.</p>
+<div class="highlight"><pre><span></span>    self.assertEqual<span class="o">(</span>response.content.decode<span class="o">()</span>,expected_html<span class="o">)</span>
+AssertionError: u<span class="s1">&#39;A new list item&#39;</span> !<span class="o">=</span> u<span class="err">&#39;</span>&lt;html&gt;
+</pre></div>
+<p>Передадим переменную в * o/blog/views.py *</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">home_page</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;home.html&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="s1">&#39;item&#39;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;item_text&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">})</span>
+</pre></div>
+<p>Юнит тест прошел.
+Запустим функциональный.</p>
+<div class="highlight"><pre><span></span>./ft.py
+</pre></div>
+<div class="highlight"><pre><span></span>AssertionError: New to-do item did not appear in table
+</pre></div>
+<p>Не очень информативно т.к. мы видим чего нет на странице но не видим что есть. Допилим тест <em>o/ft.py</em>.</p>
+<div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+    <span class="nb">any</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;Buy peacock feathers&#39;</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">),</span>
+    <span class="s2">&quot;New to-do item did not appear in table its text was: </span><span class="se">\n</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+<p>Теперь лучше.</p>
+<div class="highlight"><pre><span></span>AssertionError: New to-do item did not appear in table its text was:
+Buy peacock feathers
+</pre></div>
+<p>Но можно еще лучше!</p>
+<div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;Buy peacock feathers&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">])</span>
+</pre></div>
+<div class="highlight"><pre><span></span>AssertionError: <span class="s1">&#39;Buy peacock feathers&#39;</span> not found in <span class="o">[</span>u<span class="s1">&#39;Buy peacock feathers&#39;</span><span class="o">]</span>
+</pre></div>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

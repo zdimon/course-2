@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Виртуальное окружение и наш первый блог.</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">doc </a></h1>
+                <nav><ul>
+                    <li><a href="/pages/python, курсы.html">Курс обучения языку python</a></li>
+                    <li class="active"><a href="/category/urok-1.html">Урок 1</a></li>
+                    <li><a href="/category/urok-2.html">Урок 2</a></li>
+                    <li><a href="/category/urok-3.html">Урок 3</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/1-4.html" rel="bookmark"
+           title="Permalink to Виртуальное окружение и наш первый блог.">Виртуальное окружение и наш первый блог.</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-08T00:00:00+01:00">
+                Published: Вс. 08 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-1.html">Урок 1</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/uroki.html">уроки</a> <a href="/tag/kursy.html">курсы</a> </p>
+</footer><!-- /.post-info -->      <p>Создание виртуального окружения.</p>
+<div class="highlight"><pre><span></span>virtualenv ve
+</pre></div>
+<p>Переход в каталог виртуального окружения ВО.</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> ve
+</pre></div>
+<p>Активируем ВО.</p>
+<div class="highlight"><pre><span></span><span class="nb">source</span> ./bin/activate
+</pre></div>
+<p>Создаем файл requirements.txt со списком необходимых пакетов.</p>
+<div class="highlight"><pre><span></span>touch requirements.txt
+</pre></div>
+<p>Содержимое файла.</p>
+<div class="highlight"><pre><span></span><span class="n">Pelican</span>
+<span class="n">Markdown</span>
+</pre></div>
+<p>Устанавливаем эти пакеты.</p>
+<div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+<p>Создадим каталог для проекта.</p>
+<div class="highlight"><pre><span></span>mkdir site
+<span class="nb">cd</span> site
+</pre></div>
+<p>Создадим проект pelican.</p>
+<div class="highlight"><pre><span></span>pelican-quickstart
+</pre></div>
+<p>Отвечаем на вопросы.</p>
+<p>Заходим в каталог с контентом и создадим там пустой файл.</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> content
+touch index.md
+</pre></div>
+<p>Отредактируем его следующим образом:</p>
+<div class="highlight"><pre><span></span>Title: Мой первый пост
+Date: 2010-12-03 10:20
+Category: Начало
+
+Привет мир!
+</pre></div>
+<p>Соберем статику.</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> ..
+pelican content
+</pre></div>
+<p>Запустим вэб сервер.</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> output
+python -m SimpleHTTPServer
+</pre></div>
+<p>Смотрим результат на <strong>http://localhost:8000</strong>.</p>
+<p>Документация проекта <a class="reference external" href="http://docs.getpelican.com/en/3.5.0/index.html">http://docs.getpelican.com/en/3.5.0/index.html</a></p>
+<p>Плагины <a class="reference external" href="https://github.com/getpelican/pelican-plugins">https://github.com/getpelican/pelican-plugins</a></p>
+<p>Темы <a class="reference external" href="https://github.com/getpelican/pelican-themes">https://github.com/getpelican/pelican-themes</a></p>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

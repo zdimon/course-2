@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>doc - Урок 3</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">doc </a></h1>
+                <nav><ul>
+                    <li><a href="/pages/python, курсы.html">Курс обучения языку python</a></li>
+                    <li><a href="/category/urok-1.html">Урок 1</a></li>
+                    <li><a href="/category/urok-2.html">Урок 2</a></li>
+                    <li class="active"><a href="/category/urok-3.html">Урок 3</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/3-1.html">Содержание</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-02-11T00:00:00+01:00">
+                Published: Ср. 11 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-3.html">Урок 3</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/tutorial.html">tutorial</a> </p>
+</footer><!-- /.post-info --><ul class="simple">
+<li><a class="reference external" href="/3-2.html">Работаем с шаблонами</a></li>
+<li><a class="reference external" href="/3-3.html">Первая форма</a></li>
+</ul>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/3-2.html" rel="bookmark"
+                           title="Permalink to Работаем с шаблонами">Работаем с шаблонами</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-11T00:00:00+01:00">
+                Published: Ср. 11 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-3.html">Урок 3</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/tutorial.html">tutorial</a> <a href="/tag/uroki.html">уроки</a> <a href="/tag/unittest.html">unittest</a> <a href="/tag/shablony.html">шаблоны</a> <a href="/tag/templates.html">templates</a> </p>
+</footer><!-- /.post-info -->                <p>Создадим директорию o/blog/templates и поместим туда шаблон home.html со следующим кодом.</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+<p>Подключим шаблонизатор в o/blog/views.py и подгрузим шаблон.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+<span class="c1"># Create your views here.</span>
+<span class="k">def</span> <span class="nf">home_page</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;home ...</span></pre></div>
+                <a class="readmore" href="/3-2.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/3-3.html" rel="bookmark"
+                           title="Permalink to Первая форма">Первая форма</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-11T00:00:00+01:00">
+                Published: Ср. 11 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-3.html">Урок 3</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/tutorial.html">tutorial</a> <a href="/tag/uroki.html">уроки</a> <a href="/tag/unittest.html">unittest</a> <a href="/tag/shablony.html">шаблоны</a> <a href="/tag/form.html">form</a> </p>
+</footer><!-- /.post-info -->                <p>Добавим форму в шаблон o/blog/templates/home.html</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello world<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;item_text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;id_new_item&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Enter a to-do item&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">table</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;id_list_table&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+<p>Добавим в функциональный тест <strong>o/ft.py</strong> сабмит формы.</p>
+<div class="highlight"><pre><span></span><span class="kn">from ...</span></pre></div>
+                <a class="readmore" href="/3-3.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
