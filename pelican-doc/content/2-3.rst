@@ -20,7 +20,32 @@
     
     ./manage.py startapp blog
 
+Получившееся структура каталогов.
 
+.. uml::
+
+    @startsalt
+    {
+    {T
+     + <&folder>o_ve
+     ++ <&folder>o
+     +++ <&folder>o
+     +++ <&file>urls.py
+     +++ <&file>wsgi.py
+     +++ <&file>urls.py
+     +++ <&file>settings.py
+     ++ <&folder>blog
+     +++ <&folder>migrations
+     +++ <&file>views.py
+     +++ <&file>tests.py
+     +++ <&file>models.py
+     +++ <&file>admin.py   
+     + <&file>ft.py
+     + <&file>db.sqlite3
+     + <&file>manage.py   
+    }
+    }
+    @endsalt
 
 Добавим первый 'тупой' тест в *tests.py*.
 
@@ -368,7 +393,16 @@
 
 
 
-
+.. uml::
+    @startuml
+        :Write test;
+        if (Run the sest. Does it pass?) then (yes)
+            if (Does it need refactoring?) then (yes)
+                :Write minimal code;
+            else (no)
+                --> :Write minimal code;
+                
+    @enduml
 
 
 

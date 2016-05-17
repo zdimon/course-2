@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Первая модель и работа с базой</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">doc </a></h1>
+                <nav><ul>
+                    <li><a href="/pages/python, курсы.html">Курс обучения языку python</a></li>
+                    <li><a href="/category/urok-1.html">Урок 1</a></li>
+                    <li><a href="/category/urok-2.html">Урок 2</a></li>
+                    <li><a href="/category/urok-3.html">Урок 3</a></li>
+                    <li class="active"><a href="/category/urok-4.html">Урок 4</a></li>
+                    <li><a href="/category/urok-5.html">Урок 5</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/4-2.html" rel="bookmark"
+           title="Permalink to Первая модель и работа с базой">Первая модель и работа с базой</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-11T00:00:00+01:00">
+                Published: Ср. 11 Февраль 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/zdimon77gmailcon.html">zdimon77@gmail.con</a>
+        </address>
+<p>In <a href="/category/urok-4.html">Урок 4</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/tutorial.html">tutorial</a> <a href="/tag/uroki.html">уроки</a> <a href="/tag/unittest.html">unittest</a> <a href="/tag/shablony.html">шаблоны</a> <a href="/tag/form.html">form</a> </p>
+</footer><!-- /.post-info -->      <p>Напишем тест для БД.</p>
+<div class="highlight"><pre><span></span>    def test_saving_and_retrieving_items(self):
+        first_item = Item()
+        first_item.text = &#39;The first (ever) list item&#39;
+        first_item.save()
+
+        second_item = Item()
+        second_item.text = &#39;Item the second&#39;
+        second_item.save()
+
+        saved_items = Item.objects.all()
+        self.assertEqual(saved_items.count(), 2)
+
+        first_saved_item = saved_items[0]
+        second_saved_item = saved_items[1]
+        self.assertEqual(first_saved_item.text, &#39;The first (ever) list item&#39;)
+        self.assertEqual(second_saved_item.text, &#39;Item the second&#39;)
+</pre></div>
+<p>Тут мы создаем две записи в базе и проверяем их количество и содержимое поля text.</p>
+<p>Запустим тест.</p>
+<div class="highlight"><pre><span></span><span class="ne">NameError</span><span class="p">:</span> <span class="k">global</span> <span class="n">name</span> <span class="s1">&#39;Item&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</pre></div>
+<p>Напишем первую модель <em>o/blog/models.py</em></p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+<p>Тест.</p>
+<div class="highlight"><pre><span></span>django.db.utils.OperationalError: no such table: blog_item
+</pre></div>
+<p>Создадим таблицы в базе.</p>
+<blockquote>
+./manage.py schemamigration blog --init
+./manage.py migrate</blockquote>
+<p>Получившееся структура каталогов.</p>
+<img alt="uml diagram" class="uml" src="/images/dfea7138.png" />
+<p>Тест проходит, значит нужно его дописать.</p>
+<p>Уберем лишнее.</p>
+<div class="highlight"><pre><span></span><span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;A new list item&#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+<span class="o">-</span> <span class="n">expected_html</span> <span class="o">=</span> <span class="n">render_to_string</span><span class="p">(</span><span class="s1">&#39;home.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;item&#39;</span><span class="p">:</span> <span class="s1">&#39;A new list item&#39;</span><span class="p">}</span> <span class="p">)</span>
+<span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span><span class="n">expected_html</span><span class="p">)</span>
+</pre></div>
+<p>Вместо этого обратимся к базе.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_home_page_can_save_a_POST_request</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">home_page</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">Item</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">new_item</span> <span class="o">=</span> <span class="n">Item</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">new_item</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;A new list item&#39;</span><span class="p">)</span>
+
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+</pre></div>
+<p>Проверим количество записей в таблице и содержимое поля text первого элемента таблицы.</p>
+<p>Получаем.</p>
+<div class="highlight"><pre><span></span>AssertionError: <span class="m">0</span> !<span class="o">=</span> 1
+</pre></div>
+<p>Сохраним запись во вьюхе.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">blog.models</span> <span class="kn">import</span> <span class="n">Item</span>
+
+<span class="k">def</span> <span class="nf">home_page</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">Item</span><span class="p">()</span>
+        <span class="n">item</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;item_text&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">item</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;home.html&#39;</span><span class="p">)</span>
+</pre></div>
+<p>Тест прошел.</p>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

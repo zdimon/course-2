@@ -33,3 +33,7 @@ DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+PLUGIN_PATHS = ['/home/zdimon/www/course-2/pelican-doc/pelican-plugins/']
+
+PLUGINS = [ "plantuml" ]

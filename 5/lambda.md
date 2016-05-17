@@ -3,10 +3,10 @@
 Python supports the creation of anonymous functions (i.e. functions that are not bound to a name) at runtime, using a construct called "lambda". 
 
 
-    def f (x): return x**2
+    def f (x): 
+        return x**2
 
     print f(2)
-
 
 
     ff = lambda x: x**2

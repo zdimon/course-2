@@ -1,27 +1,125 @@
 ## OS module
 
+    import os
+
 This module provides a portable way of using operating system dependent functionality. 
 
-    os.name
+###os.name
 
 The name of the operating system dependent module imported. The following names have currently been registered: 'posix', 'nt', 'os2', 'ce', 'java', 'riscos'.
 
-    os.environ
+###os.environ
 
 A mapping object representing the string environment.
 
+###os.path
+
+
+The os.path module has several functions for manipulating files and directories.
+
+
+The fist lines in the settings.py in every django project are:
+
+    import os
+    # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+So that BASE_DIR contains the name of the directory which is located above the directory where is settings.py becose of double os.path.dirname() functions.
+If we apply os.path.dirname() to directory python will act with last directory as with file.
+
+
+    import os
+
+    print 'my file is %s' % __file__
+
+    print 'absolute path %s' % os.path.abspath(__file__)
+
+    print os.path.dirname(os.path.abspath(__file__))
+
+    print os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+###os.open(file, flags[, mode])
+
+Open the file file and set various flags according to flags and possibly its mode according to mode. 
+os.open() is just a wrapper for the lower-level POSIX syscall. It takes less symbolic (and more POSIX-y) arguments, and returns the file descriptor (a number) that represents the opened file. It does not return a file object; the returned value will not have read() or write() methods.
+
+    >>> os.open('/tmp', os.O_RDONLY)
+    4
+    >>> d = os.open('/tmp/111.txt', os.O_RDONLY)
+    >>> d
+    5
+    >>> f = os.fdopen(d)
+    >>> f
+    <open file '<fdopen>', mode 'r' at 0x7f5248dd0540>
+    >>> type(f)
+    <type 'file'>
+    >>> f.read()
+    'blabla'
+
+
+    __This function is intended for low-level I/O. For normal usage, use the built-in function open(), which returns a “file object” with read() and write() methods (and many more).__ 
 
     os.chdir(path)
     os.fchdir(fd)
     os.getcwd()
-
-
-    os.open(file, flags[, mode])
+    
 
 Open the file file and set various flags according to flags and possibly its mode according to mode.
 
 https://docs.python.org/2/library/os.html#open-flag-constants
 
+###os.path.*
+
+    >>> os.path.join("c:\\music\\ap\\", "mahadeva.mp3") 
+    'c:\\music\\ap\\mahadeva.mp3'
+    (Linux 'c:\\music\\ap\\/mahadeva.mp3)
+
+
+    >>> os.path.expanduser("~")
+    '/home/zdimon'
+
+
+    >>> os.path.join(os.path.expanduser("~"), "Python",'cool')
+    '/home/zdimon/Python/cool
+
+
+    >>> os.path.split('/home/zdimo4n')
+    ('/home', 'zdimon')
+
+    >>> os.path.splitext('/home/zdimon.txt')
+    ('/home/zdimon', '.txt')
+
+
+
+
+    >>> os.listdir('/home/zdimon/www/course-2/5')
+    ['lambda.md', 'pelican.md', 'global_local.md', 'buildinfunc.md', 'pelican-content', 'run_script.md', 'error_exeptions.md', 'code']
+
+    >>> dirname = '/home/zdimon/www/course-2/5'
+    >>> [f for f in os.listdir(dirname) if os.path.isfile(os.path.join(dirname, f))]
+    ['lambda.md', 'pelican.md', 'global_local.md', 'buildinfunc.md', 'run_script.md', 'error_exeptions.md']
+
+
+
+### Removing file or dir.
+
+**os.remove(path)** will remove a file.
+
+**os.rmdir(path)** will remove an empty directory.
+
+**shutil.rmtree(/folder_name)** will delete a directory and all its contents.
+
+### Recursively walk a directory
+
+    import os
+    root = '/'
+    # dirs are the directory list under dirpath
+    # files are the file list under dirpath
+    for dirpath, dirs, files in os.walk(root):
+        for filename in files:
+            fullpath = os.path.join(dirpath, filename)
+            print fullpath
 
 
 ##Running shell commands by python
@@ -41,36 +139,6 @@ Execute the string cmd in a shell with os.popen() and return a 2-tuple (status, 
 
 Like getstatusoutput(), except the exit status is ignored and the return value is a string containing the command’s output.
 
-    commands.getstatus(file)
-
-Return the output of ls -ld file as a string. This function uses the getoutput() function, and properly escapes backslashes and dollar signs in the argument.
-
-
-###subprocess — Subprocess management
-
-
-
-The subprocess module allows you to spawn new processes, connect to their input/output/error pipes, and obtain their return codes. This module intends to replace several older modules and functions:
-
-    os.system
-    os.spawn*
-    os.popen*
-    popen2.*
-    commands.*
-
-he recommended way to launch subprocesses is to use the following convenience functions. 
-
-    subprocess.call(args, *, stdin=None, stdout=None, stderr=None, shell=False)
-
-
-shell=False disables all shell based features, but does not suffer from this vulnerability
-
-
-    from subprocess import call
-    filename = input("What file would you like to display?\n")
-    What file would you like to display?
-    on_existent; rm -rf / #
-    call("cat " + filename, shell=True) # Uh-oh. This will end badly...
 
 
 

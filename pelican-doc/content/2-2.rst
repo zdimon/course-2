@@ -62,7 +62,26 @@
 
     django-admin.py startproject o
 
+Получившееся структура каталогов.
 
+.. uml::
+
+    @startsalt
+    {
+    {T
+     + <&folder>o_ve
+     ++ <&folder>o
+     +++ <&folder>o
+     +++ <&file>urls.py
+     +++ <&file>wsgi.py
+     +++ <&file>urls.py
+     +++ <&file>settings.py
+     + <&file>ft.py
+     + <&file>db.sqlite3
+     + <&file>manage.py   
+    }
+    }
+    @endsalt
 
 
 Перейдем в директорию проекта.
