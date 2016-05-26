@@ -3,3 +3,6 @@ class MyClass(object):
     i = 12345
     def f(self):
         return 'hello world'
+
+obj = MyClass()
+import pdb; pdb.set_trace()
