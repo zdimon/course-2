@@ -17,4 +17,6 @@ or you can use the built-in bool() to assure a Boolean value:
 
 ###(falseValue, trueValue)[bool(<expression>)]
 
+###Binary operators
 
+    m = 1>3 or 7
