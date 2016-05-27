@@ -3,7 +3,7 @@ class Messanger(object):
     transport = 'email'
     def check_on_stop_word(self,message):
         if 'fuck' in message.split():
-            return '***'
+            return message.replace('fuck','***')
         return message
 
     def __init__(self,message):
@@ -36,10 +36,10 @@ class Icq(Messanger):
 
 
 
-m = Email('hello')
+m = Email('do not fuck me')
 m.send()
 
-m = Icq('hello')
+m = Icq('do not fuck me')
 m.transport = 'icq'
 m.send()
 

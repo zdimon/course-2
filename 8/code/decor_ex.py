@@ -12,7 +12,7 @@ def set_discount_par(discount):
     return real_decorator
 
 
-#@set_discount
+@set_discount
 @set_discount_par(10)
 def get_price(name):
     if name == 'apple':
@@ -27,10 +27,5 @@ print price
 
 
 
-
-
-
-price = get_price('banana')
-print price
 
 
