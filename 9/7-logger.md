@@ -44,6 +44,65 @@ remote server. You can also write your own custom logging handler.
         logger.error('Failed to open file', exc_info=True)
 
 
+## load the logging configuration
+
+    import logging.config
+
+    logging.config.dictConfig({
+        'version': 1,              
+        'disable_existing_loggers': False,  # this fixes the problem
+
+        'formatters': {
+            'standard': {
+                'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+            },
+        },
+        'handlers': {
+            'default': {
+                'level':'INFO',    
+                'class':'logging.StreamHandler',
+            },  
+            'file': {
+                'level':'INFO',    
+                'class':'logging.FileHandler',
+                'filename': 'root.log',
+            }, 
+        },
+        'loggers': {
+            '': {                  
+                'handlers': ['file'],        
+                'level': 'INFO',  
+                'propagate': True  
+            }
+        }
+    })
+
+
+###Filters
+
+Filter class that can be used for filtering log records. 
+Here’s an example filter that only allows INFO messages to be logged:
+
+    import logging
+     
+    class InfoFilter(logging.Filter):
+        def filter(self, rec):
+            return rec.levelno == logging.INFO
+
+     'filters': {
+         'my_filter': {
+             '()': 'mymodule.InfoFilter'
+         }
+     },
+
+     'mail_admins': {
+         'level': 'ERROR',
+         'filters': ['my_filter'],
+         'class': 'django.utils.log.AdminEmailHandler'
+     }
+
+
+
 
 
 http://victorlin.me/posts/2012/08/26/good-logging-practice-in-python

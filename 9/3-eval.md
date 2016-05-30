@@ -20,3 +20,8 @@ class and function/method definitions and so on.
 2. eval returns the value of the given expression, whereas exec ignores the 
 return value from its code, and always returns None
 
+###execfile(filename[, globals[, locals]])
+
+This function is similar to the exec statement, but parses a file instead of a string.
+
+

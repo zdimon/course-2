@@ -1,0 +1,8 @@
+Start reading database
+Updating records ...
+Finish updating records
+Failed to open file
+Traceback (most recent call last):
+  File "logger_ex.py", line 52, in <module>
+    open('/path/to/does/not/exist', 'rb')
+IOError: [Errno 2] No such file or directory: '/path/to/does/not/exist'

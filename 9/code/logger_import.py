@@ -1,8 +1,8 @@
 import logging
-
+logger = logging.getLogger(__name__)
 
 def sum(x,y):
-    logger = logging.getLogger(__name__)
+    
     logger.info('fffffffffffffffff')    
     try:
         return x/y

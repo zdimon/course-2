@@ -1,13 +1,41 @@
 import logging
 from logger_import import sum
+import logging.config
 
 logging.basicConfig(level=logging.DEBUG)
 
+
+
+logging.config.dictConfig({
+    'version': 1,              
+    'disable_existing_loggers': True,  
+
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+        },
+    },
+    'handlers': {
+        'default': {
+            'level':'INFO',    
+            'class':'logging.StreamHandler',
+        },  
+        'file': {
+            'level':'INFO',    
+            'class':'logging.FileHandler',
+            'filename': 'root.log',
+        }, 
+    },
+    'loggers': {
+        '': {                  
+            'handlers': ['file'],        
+            'level': 'INFO',  
+            'propagate': True  
+        }
+    }
+})
+
 logger = logging.getLogger(__name__)
-handler = logging.FileHandler('hello.log')
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
 
 logger.info('Start reading database')
 # read database here
