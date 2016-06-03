@@ -16,14 +16,20 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.flatpages import views
-from main.views import home_page
+from main.views import home_page, MusicianListView
+
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     url(r'^$', home_page),
+    url(r'^page/(?P<slug>[^\.]+)', 'page.views.detail', name='show_page'),
+    url(r'^ckeditor/', include('ckeditor.urls')),
+    url(r'^class$', MusicianListView.as_view()),
     url(r'^admin/', admin.site.urls),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^about-us/$', views.flatpage, {'url': '/about/'}, name='about'),
     url(r'^help/$', views.flatpage, {'url': '/help/'}, name='help'),
     url(r'^contact/$', views.flatpage, {'url': '/contact/'}, name='contact'),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)    

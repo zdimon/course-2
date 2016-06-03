@@ -5,6 +5,9 @@ class Kls(object):
     no_inst = 0
     def __init__(self):
         Kls.no_inst = Kls.no_inst + 1
+    @classmethod
+    def g(cls):
+        return cls.no_inst
  
 ik1 = Kls()
 ik2 = Kls()

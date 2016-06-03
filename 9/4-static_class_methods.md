@@ -29,9 +29,9 @@ This can cause a future code maintenance problem, as follows:
      
     class Kls(object):
         no_inst = 0
-     
         def __init__(self):
             Kls.no_inst = Kls.no_inst + 1
+
      
     ik1 = Kls()
     ik2 = Kls()

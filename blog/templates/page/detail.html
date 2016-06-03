@@ -1,0 +1,11 @@
+gbfdg dfg dfgdf
+
+{% if page.pk == 1 %} 1111 {% endif %}
+
+{{ page.content|safe }}
+
+<a href="{{ page.get_absolute_url }}" >Detail</a>
+
+    <a href="{% url 'show_page' slug='hello' %}" >About</a>
+
+    <a href="/page/hello" >About</a>

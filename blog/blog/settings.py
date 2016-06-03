@@ -15,8 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-print __file__
-print BASE_DIR
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +27,7 @@ SECRET_KEY = '1^u@agd$0hf*@w2e%+wj1tbhj$^00$-ehr33h63$rc#v)hreuj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,7 +42,25 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     'main',
+    'page',
+    'ckeditor',
+    'debug_toolbar',
 ]
+
+CKEDITOR_UPLOAD_PATH = "ckeditor/"
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/uploads/'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+    'toolbar': 'Full',
+    'height': 300,
+    'width': 900,
+    },
+    }
+
 
 SITE_ID = 1
 
