@@ -1,11 +1,10 @@
-gbfdg dfg dfgdf
+{% extends 'base.html' %}
 
-{% if page.pk == 1 %} 1111 {% endif %}
+
+{% block content %}
+
+<h1>Detail page</h1>
 
 {{ page.content|safe }}
 
-<a href="{{ page.get_absolute_url }}" >Detail</a>
-
-    <a href="{% url 'show_page' slug='hello' %}" >About</a>
-
-    <a href="/page/hello" >About</a>
+ {% endblock %}

@@ -45,7 +45,31 @@ INSTALLED_APPS = [
     'page',
     'ckeditor',
     'debug_toolbar',
+    'rosetta',
+    'modeltranslation',
 ]
+LOGIN_REDIRECT_URL = '/'
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+
+ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
+YANDEX_TRANSLATE_KEY = 'trnsl.1.1.20140521T130035Z.1014ae2799c685e3.97b1345108ab3a8520d96f730016a9dac947049b'
+ROSETTA_MESSAGES_SOURCE_LANGUAGE_CODE = 'en'
+ROSETTA_MESSAGES_SOURCE_LANGUAGE_NAME = 'English'
+
+
+LANGUAGES = (
+    ('ru', 'Russian'),
+    ('en', 'English'),
+
+)
+
+USE_I18N = True
+USE_L10N = True
+LANGUAGE_CODE = 'ru'
+
+LOCALE_PATHS = (
+        os.path.join(BASE_DIR, 'locale'),
+    )
 
 CKEDITOR_UPLOAD_PATH = "ckeditor/"
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
@@ -55,7 +79,7 @@ MEDIA_URL = '/uploads/'
 
 CKEDITOR_CONFIGS = {
     'default': {
-    'toolbar': 'Full',
+    'toolbar': 'Uni',
     'height': 300,
     'width': 900,
     },
@@ -73,6 +97,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'blog.urls'
