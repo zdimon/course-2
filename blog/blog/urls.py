@@ -36,5 +36,6 @@ urlpatterns = i18n_patterns(
     url(r'^about-us/$', views.flatpage, {'url': '/about/'}, name='about'),
     url(r'^help/$', views.flatpage, {'url': '/help/'}, name='help'),
     url(r'^contact/$', views.flatpage, {'url': '/contact/'}, name='contact'),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)    

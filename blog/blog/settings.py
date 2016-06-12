@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rosetta',
     'modeltranslation',
+    'registration'
 ]
 LOGIN_REDIRECT_URL = '/'
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
@@ -56,6 +57,8 @@ YANDEX_TRANSLATE_KEY = 'trnsl.1.1.20140521T130035Z.1014ae2799c685e3.97b1345108ab
 ROSETTA_MESSAGES_SOURCE_LANGUAGE_CODE = 'en'
 ROSETTA_MESSAGES_SOURCE_LANGUAGE_NAME = 'English'
 
+ACCOUNT_ACTIVATION_DAYS = 7
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LANGUAGES = (
     ('ru', 'Russian'),
@@ -170,5 +173,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'compressor.finders.CompressorFinder',
+
+)
 
 

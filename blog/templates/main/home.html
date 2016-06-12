@@ -2,10 +2,18 @@
 
 
 
-{% block content %}
+{% block 'content' %}
 
-
-    Hello {{ name }} 
+    <h2>{{ message}} </h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table border=1>
+            {{ form }}
+            <tr>
+                <td> <input type="submit" name="Go"> </td>
+            </tr>
+        </table>
+    </form>
 
    
 

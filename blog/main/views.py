@@ -29,12 +29,26 @@ def change_language(request):
 
     return response
 
+from main.form import NameForm
 
 def home_page(request):
     #print request.method
     m = Musician.objects.all()
+    message = ''
+    if request.method == 'POST':
+        
+        form = NameForm(request.POST)
+           
+        if form.is_valid():
+            form.save()
+            message = 'Well'
+            return HttpResponseRedirect('/'+request.LANGUAGE_CODE+'/')
+        else:
+            message = 'Some error!!!'
+    else:        
+        form = NameForm()
     #import pdb; pdb.set_trace()
-    context = {'name': 'Dima', 'm': m}
+    context = {'name': 'Dima', 'form': NameForm(),'message': message}
     return render_to_response('main/home.html', context, RequestContext(request))
 
 

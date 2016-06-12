@@ -26,7 +26,11 @@ class Supermusician(Musician):
     supername = models.CharField(max_length=100)
 
 
-
+class User(models.Model):
+    surname = models.CharField(max_length=100, null=True, blank=True, verbose_name=u'Surname')
+    name = models.CharField(max_length=100, null=True, blank=True, verbose_name=u'Name')
+    phone = models.CharField(max_length=11, null=True, blank=True, verbose_name=u'Phone')
+    email = models.EmailField(verbose_name=u'Email')
 
 
 
