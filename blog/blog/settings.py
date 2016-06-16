@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for blog project.
 
@@ -47,8 +48,42 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rosetta',
     'modeltranslation',
-    'registration'
+    'registration',
+    'djcelery'
 ]
+
+import djcelery
+djcelery.setup_loader()
+BROKER_URL = 'redis://localhost:6379/0'
+
+
+
+class CeleryRouter(object):
+ def route_for_task(self, task, args=None, kwargs=None):
+     print task
+     if task == "save_message":
+         return {'queue': 'save'}
+     elif task == 'send_message':
+         return {'queue': 'send'}
+     else:
+         # по умолчанию, все остальные задачи обслуживаются очередью
+         # с именем "celery" (достаточно просто сказать None)
+         # мы сюда собираем всю "мелочёвку"
+         return None
+
+CELERY_ROUTES = (CeleryRouter(), )
+
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/home/zdimon/www/course-2/blog/cache/',
+
+    }
+}
+
+
 LOGIN_REDIRECT_URL = '/'
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 

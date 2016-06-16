@@ -31,8 +31,16 @@ def change_language(request):
 
 from main.form import NameForm
 
+from django.views.decorators.cache import cache_page
+from django.contrib.auth.decorators import login_required
+
+@cache_page(30)
+@login_required
 def home_page(request):
     #print request.method
+    from main.tasks import save_message, send_message
+    #save_message.delay()
+    #send_message.delay()
     m = Musician.objects.all()
     message = ''
     if request.method == 'POST':
