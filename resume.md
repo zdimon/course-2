@@ -1,6 +1,4 @@
-##Zharikov Dmitriy Viktorovich
-
-I am 39 years old.
+##Zharikov Dmitriy
 
 17 years’ work experience in the field of IT. 
 1999 - 2011 – development of server applications using PHP Symfony, Peer. 
