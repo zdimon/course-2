@@ -8,7 +8,7 @@ I am 39 years old.
 2015-2016 – development of frontend single page applications using AngularJS and Django. 
 I have an experience of team development.
 
-I have additional skills of work with the following technologies:
+###I have additional skills of work with the following technologies:
 
 - PHP: Symfony, Peer, Smarty. 
 - JavaScript: jQuery, OpenLayer, Ionic, NodeJs, npm, grunt; 
@@ -19,7 +19,7 @@ I have additional skills of work with the following technologies:
 - Linux server: Ubuntu, ssh, screen, bash, Nginx, uwsgi, supervisor, Git; 
 - skills of settings the servers based on Ubuntu 15  
 
-More than 30 finished projects.
+###More than 30 finished projects.
 
 The most meaningful projects:
 
