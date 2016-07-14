@@ -1,4 +1,4 @@
-##Zharikov Dmitriy
+##Zharikov Dmitry
 
 17 years’ work experience in the field of IT. 
 
