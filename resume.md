@@ -1,9 +1,13 @@
 ##Zharikov Dmitriy
 
 17 years’ work experience in the field of IT. 
+
 1999 - 2011 – development of server applications using PHP Symfony, Peer. 
+
 2011-2016 – development of client-server applications using Python, Django. 
+
 2015-2016 – development of frontend single page applications using AngularJS and Django. 
+
 I have an experience of team development.
 
 ###I have additional skills of work with the following technologies:
